@@ -1,22 +1,18 @@
 // PortfolioPage.tsx
-import React, { useState } from "react";
+import React from "react";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { Header } from "../components/shared/Header";
 import { ProjectsGrid } from "../components/ProjectsGrid";
 import { SkillsList } from "../components/SkillsList";
+import { PersonalQualities } from "../components/PersonalQualities";
+import { AcademicHistory } from "../components/AcademicHistory";
 import { ContactForm } from "../components/ContactForm";
-import { Footer } from "../components/shared/Footer";
 import { PORTFOLIO_INFO } from "../config/portfolioData";
 import { About } from "../components/About";
-import type { Project } from "../types/portfolio";
-import { ProjectModal } from "../components/ProjectModal";
+
 import { ScrollProgressBar } from "../components/shared/ScrollProgressBar";
 import { ScrollToTop } from "../components/shared/ScrollToTop";
-import CLIResume from "../components/CLIResume";
-
 const PortfolioPage: React.FC = () => {
-  const [selected, setSelected] = useState<Project | null>(null);
-  const [showCLI, setShowCLI] = useState(false);
 
   return (
     <ThemeProvider>
@@ -26,12 +22,10 @@ const PortfolioPage: React.FC = () => {
           { href: "#about", label: "About" },
           { href: "#projects", label: "Projects" },
           { href: "#skills", label: "Skills" },
+          { href: "#academic", label: "Academic" },
           { href: "#contact", label: "Contact" },
         ]}
-        onTryCLI={() => setShowCLI(true)}
       />
-      {/* CLI panel (docked / overlay) */}
-      <CLIResume open={showCLI} onClose={() => setShowCLI(false)} />
 
       <main className="max-w-6xl 2xl:max-w-9xl mx-auto px-6 py-10">
         <section
@@ -48,7 +42,7 @@ const PortfolioPage: React.FC = () => {
           <p className="mb-6 text-sm text-gray-500 dark:text-gray-400 mt-1">
             Selected work — click a card for details.
           </p>
-          <ProjectsGrid projects={PORTFOLIO_INFO.projects} onOpen={setSelected} />
+          <ProjectsGrid projects={PORTFOLIO_INFO.projects} />
         </section>
 
         <section id="skills" className="py-8">
@@ -59,56 +53,67 @@ const PortfolioPage: React.FC = () => {
           <SkillsList skills={PORTFOLIO_INFO.skills} isBar={true} />
         </section>
 
+        {PORTFOLIO_INFO.personalQualities && (
+          <section id="personal-qualities" className="py-8">
+            <h2 className="text-2xl font-semibold text-[var(--brand)]">
+              Personal Quality
+            </h2>
+            <p className="mb-6 text-sm text-gray-500 dark:text-gray-400 mt-1">
+              Attributes that define my professional approach.
+            </p>
+            <PersonalQualities qualities={PORTFOLIO_INFO.personalQualities} />
+          </section>
+        )}
+
+        <section id="academic" className="py-8">
+          <h2 className="text-2xl font-semibold text-[var(--brand)]">
+            Academic History
+          </h2>
+          <p className="mb-6 text-sm text-gray-500 dark:text-gray-400 mt-1">
+            My educational background and achievements.
+          </p>
+          <AcademicHistory education={PORTFOLIO_INFO.education} />
+        </section>
+
         <section id="contact" className="py-8">
           <h2 className="text-2xl font-semibold text-[var(--brand)]">
             Contact
           </h2>
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-            Tell me about your project, or just say hi.
+            Want to know more about me or discuss internship opportunities? Feel free to contact me with the form below.
           </p>
           <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)]">
+              <h3 className="font-semibold text-lg mb-4 text-black dark:text-white">Contact form</h3>
               <ContactForm />
             </div>
 
-            <div className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] flex flex-col gap-4">
-              <div>
-                <div className="font-semibold">Let's collaborate</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">
-                  I'm available for freelance and contract work. My inbox is
-                  open.
+            <div className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] h-fit">
+              <h3 className="font-semibold text-lg mb-4 text-black dark:text-white">Quick contact</h3>
+              <div className="space-y-4 text-sm text-[var(--muted)]">
+                <div>
+                  <span className="font-medium text-[var(--text)] block">Email:</span>
+                  limzhiying03@gmail.com
                 </div>
-              </div>
-              <div className="mt-2">
-                <div className="font-semibold">Quick contact</div>
-                <div className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-                  Email: satyasubudhi089@gmail.com
+                <div>
+                  <span className="font-medium text-[var(--text)] block">Git Hub:</span>
+                  <a
+                    href="https://github.com/ZYLIM03"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--brand)] hover:underline break-all"
+                  >
+                    https://github.com/ZYLIM03
+                  </a>
                 </div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">
-                  Location: Remote
-                </div>
-              </div>
-              <div className="mt-auto">
-                <div className="text-sm font-medium">Resume</div>
-                <a
-                  href="/"
-                  className="block mt-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700"
-                >
-                  Download PDF
-                </a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ScrollToTop />
-      <Footer />
 
-      <ProjectModal
-        project={selected}
-        open={!!selected}
-        onClose={() => setSelected(null)}
-      />
+
     </ThemeProvider>
   );
 };

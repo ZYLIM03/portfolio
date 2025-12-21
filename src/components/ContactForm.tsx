@@ -48,9 +48,8 @@ export const ContactForm: React.FC<{
     const payload = {
       to: DEFAULT_TO,
       subject: `Website contact from ${state.name || state.email}`,
-      body: `${state.message}\n\n---\nFrom: ${state.name || "Anonymous"} <${
-        state.email
-      }>`,
+      body: `${state.message}\n\n---\nFrom: ${state.name || "Anonymous"} <${state.email
+        }>`,
       html: false,
       from_name: state.name || undefined,
       from_email: state.email || undefined,
@@ -117,8 +116,12 @@ export const ContactForm: React.FC<{
       <div className="pt-2 flex items-center gap-3">
         <button
           type="submit"
-          disabled={loading}
-          className="px-4 py-2 rounded-lg text-white bg-[var(--brand)] disabled:opacity-60"
+          disabled={loading || !state.name || !state.email || !state.message}
+          className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 border 
+            ${loading || !state.name || !state.email || !state.message
+              ? "bg-gray-300 text-gray-500 border-gray-300 cursor-not-allowed opacity-60 dark:bg-gray-700 dark:text-gray-400 dark:border-gray-700"
+              : "bg-[var(--brand)] text-white border-[var(--brand)] hover:bg-transparent hover:text-[var(--brand)]"
+            }`}
         >
           {loading ? "Sending..." : "Send message"}
         </button>

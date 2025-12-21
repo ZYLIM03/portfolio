@@ -83,6 +83,7 @@ export type Project = {
   description?: string; // longer description, markdown ok
   tags?: string[]; // technologies / categories
   image?: Url; // preview image path
+  video?: Url; // optional video path
   href?: Url; // live url (for playground)
   links?: ProjectLink[]; // alternate links
   date?: DateRange | string;
@@ -109,6 +110,8 @@ export type Education = {
   date?: DateRange | string;
   location?: string;
   summary?: string;
+  bullets?: string[]; // e.g. "Main Subjects: ..."
+  score?: string; // e.g. "10A", "CGPA 3.99"
 };
 
 /* ---------- Certifications / awards ---------- */
@@ -146,6 +149,7 @@ export type Portfolio = {
     languages?: { name: string; level?: string }[];
     interests?: string[]; // e.g. "astronomy, photography"
   };
+  personalQualities?: string[];
 };
 
 

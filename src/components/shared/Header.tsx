@@ -14,9 +14,8 @@ import { PORTFOLIO_INFO } from "../../config/portfolioData";
 
 type NavLink = { href: string; label: string };
 
-export const Header: React.FC<{ links?: NavLink[]; onTryCLI?: () => void }> = ({
+export const Header: React.FC<{ links?: NavLink[] }> = ({
   links = [],
-  onTryCLI,
 }) => {
   const { dark, toggle } = useTheme();
   const headerRef = useRef<HTMLElement | null>(null);
@@ -145,14 +144,6 @@ export const Header: React.FC<{ links?: NavLink[]; onTryCLI?: () => void }> = ({
               );
             })}
           </div>
-
-          <button
-            onClick={onTryCLI}
-            className="btn-light-flare sm:inline-flex items-center gap-2 px-3 py-1.5 rounded text-sm border border-[var(--border)] hover:bg-[var(--border)]/30 transition cursor-pointer"
-            aria-label="Try CLI"
-          >
-            Try CLI
-          </button>
 
           <button
             onClick={toggle}

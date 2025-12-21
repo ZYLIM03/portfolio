@@ -1,7 +1,7 @@
 import { animate, motion } from "framer-motion";
 import type { Personal } from "../types/portfolio";
-import * as SiIcons from "react-icons/si";
-import { Link } from "react-router-dom";
+
+
 
 export const About: React.FC<{ personal: Personal }> = ({ personal }) => {
   const text = personal.name.split("");
@@ -39,6 +39,7 @@ export const About: React.FC<{ personal: Personal }> = ({ personal }) => {
         className="md:col-span-2"
       >
         <motion.h1 className="text-4xl md:text-5xl font-bold leading-tight text-[var(--brand)]">
+          Hi, I'm{" "}
           {text.map((char, i) => (
             <motion.span
               key={i}
@@ -54,33 +55,28 @@ export const About: React.FC<{ personal: Personal }> = ({ personal }) => {
 
         <div className="mt-6 text-md dark:prose-invert max-w-none text-[var(--muted)]">
           <p>
-            I design and build web applications with attention to performance,
-            accessibility, and delightful details. Currently focusing on React +
-            Tailwind workflows and component driven design.
+            I am a Computer Science student with a passion for learning new technologies and improving my problem-solving
+            skills. Throughout my studies, I have worked on multiple academic and project-based systems, including desktop applications, database systems, and mobile applications.
           </p>
           <p>
-            I enjoy shipping small, meaningful features and improving dev DX
-            with tooling and automation.
+            Location: Ipoh, Malaysia
+          </p>
+          <p>
+            Date of Birth: 19 June 2003
           </p>
         </div>
 
         <div className="mt-6 flex gap-3">
           <a
             href="#projects"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--brand)] text-white font-medium"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[var(--brand)] bg-[var(--brand)] text-white font-medium transition-all hover:bg-transparent hover:text-[var(--brand)]"
             onClick={(e) => onNavClick(e, "#projects")}
           >
             See projects
           </a>
-          <Link
-            to="/resume"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-800"
-          >
-            See Resume
-          </Link>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-800"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[var(--brand)] bg-[var(--brand)] text-white font-medium transition-all hover:bg-transparent hover:text-[var(--brand)]"
             onClick={(e) => onNavClick(e, "#contact")}
           >
             Get in touch
@@ -92,47 +88,18 @@ export const About: React.FC<{ personal: Personal }> = ({ personal }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.15 }}
-        className="p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)]"
+        className="flex items-center justify-center"
       >
-        <div className="flex flex-col items-center text-center gap-4">
-          <div className="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-400 to-pink-400 flex items-center justify-center text-4xl font-bold text-white">
-            {personal.avatar ? (
-              <img
-                className="rounded-full"
-                src={personal.avatar}
-                alt="profile"
-              />
-            ) : (
-              personal.name?.split(" ")[0]?.[0]
-            )}
-          </div>
-          <div className="font-semibold">{personal.name}</div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">
-            {personal.title}
-          </div>
-          <div className="mt-3 flex gap-5 text-[var(--muted)]">
-            {personal?.contact?.socials?.map((social, index) => {
-              const Icon = SiIcons[social.icon as keyof typeof SiIcons];
-              return (
-                <a
-                  key={social.label + index}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
-                >
-                  {Icon ? (
-                    <Icon
-                      className="hover:text-[var(--brand)]"
-                      size={social?.size ?? 16}
-                    />
-                  ) : (
-                    <span>{social.label}</span>
-                  )}
-                </a>
-              );
-            })}
-          </div>
+        <div className="w-75 h-75 rounded-full bg-gradient-to-br from-indigo-400 to-pink-400 flex items-center justify-center text-4xl font-bold text-white overflow-hidden">
+          {personal.avatar ? (
+            <img
+              className="w-full h-full object-cover scale-110 -translate-y-2"
+              src={personal.avatar}
+              alt="profile"
+            />
+          ) : (
+            personal.name?.split(" ")[0]?.[0]
+          )}
         </div>
       </motion.aside>
     </>
