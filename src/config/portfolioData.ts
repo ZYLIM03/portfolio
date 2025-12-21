@@ -167,7 +167,7 @@ export const PORTFOLIO_INFO: Portfolio = {
       links: [
         {
           label: "GitHub",
-          url: "https://github.com/satya00089/alochona",
+          url: "https://github.com/ZYLIM03/ZY-Hotel-Reservation-System",
           icon: "SiGithub",
         },
       ],
