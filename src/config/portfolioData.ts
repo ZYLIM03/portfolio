@@ -4,7 +4,7 @@ export const PORTFOLIO_INFO: Portfolio = {
   meta: {
     createdAt: new Date().toISOString(),
     locale: "en-US",
-    url: "https://satya00089.github.io/portfolio", // update if you have a custom domain
+    url: "https://zylim03.github.io/portfolio", // update if you have a custom domain
     pdf: "/resume.pdf",
   },
   personal: {
@@ -12,36 +12,13 @@ export const PORTFOLIO_INFO: Portfolio = {
     title: "Computer Science Student",
     headline: "Computer Science Student",
     avatar: "./profile_new.jpg",
-    summary:
-      "Senior Engineer with 7+ years of experience delivering enterprise-grade applications. Over the last 3 years I have focused on building production systems using Python (FastAPI) and React — designing APIs, building responsive frontends, and automating deployments with IaC. Experienced across AWS & Azure and comfortable owning full delivery from design to production.",
+    summary: "",
     contact: {
-      email: "satyasubudhi089@gmail.com",
-      phone: "+91 9937 446 070",
-      location: "Bangalore, India",
-      website: "https://satya00089.github.io/portfolio",
-      socials: [
-        {
-          label: "LinkedIn",
-          url: "https://www.linkedin.com/in/satya-subudhi/",
-          icon: "SiLinkedin",
-        },
-        {
-          label: "GitHub",
-          url: "https://github.com/satya00089",
-          icon: "SiGithub",
-        },
-        {
-          label: "Hugging Face",
-          url: "https://huggingface.co/spaces/satya00089/",
-          icon: "SiHuggingface",
-        },
-        {
-          label: "Kaggle",
-          url: "https://www.kaggle.com/satya00089",
-          icon: "SiKaggle",
-          size: 32,
-        },
-      ],
+      email: "",
+      phone: "",
+      location: "",
+      website: "",
+      socials: [],
     },
   },
   highlights: [
@@ -148,7 +125,7 @@ export const PORTFOLIO_INFO: Portfolio = {
       links: [
         {
           label: "GitHub",
-          url: "https://github.com/satya00089/landing-zone-orchestrator-ui",
+          url: "https://github.com/cy-0804/Bus-Ticket-Management-System",
           icon: "SiGithub",
         },
       ],
@@ -162,7 +139,7 @@ export const PORTFOLIO_INFO: Portfolio = {
       links: [
         {
           label: "GitHub",
-          url: "https://github.com/satya00089/diagrammatic",
+          url: "https://github.com/WongJX823/OOP_SmartParkingSystem",
           icon: "SiGithub",
         },
       ],
@@ -177,7 +154,7 @@ export const PORTFOLIO_INFO: Portfolio = {
       links: [
         {
           label: "GitHub",
-          url: "https://github.com/satya00089/mui-color-wheel",
+          url: "https://github.com/jiayingloh/Sulam-PineAppo",
           icon: "SiGithub",
         },
       ],
@@ -205,7 +182,7 @@ export const PORTFOLIO_INFO: Portfolio = {
       links: [
         {
           label: "GitHub",
-          url: "https://github.com/satya00089/night-sky",
+          url: "https://github.com/IrynOoi/stellar-restaurant",
           icon: "SiGithub",
         },
       ],
