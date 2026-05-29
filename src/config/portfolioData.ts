@@ -119,7 +119,7 @@ export const PORTFOLIO_INFO: Portfolio = {
     {
       id: "industrial-inspection-management",
       title: "Industrial Inspection Management System",
-      description: "A comprehensive industrial inspection management application built with Flutter and Supabase as the backend. The system empowers inspectors to efficiently manage vessel records, streamline the generation of detailed inspection reports, and view insightful analytics. Key features include secure authentication, robust offline/online synchronization, interactive data visualization, and automated PDF report generation and sharing, ensuring a seamless and reliable inspection workflow in the field.",
+      description: "A comprehensive industrial inspection management application built with Flutter and Supabase as the backend. The system help inspectors to efficiently manage vessel records, streamline the generation of detailed inspection reports, task management and view analytics. Email notification for new task assigned and Kanban-style task board.",
       tags: ["Flutter", "Dart", "Supabase"],
       video: "video6.mp4",
       links: [
