@@ -117,6 +117,20 @@ export const PORTFOLIO_INFO: Portfolio = {
   ],
   projects: [
     {
+      id: "industrial-inspection-management",
+      title: "Industrial Inspection Management System",
+      description: "A comprehensive industrial inspection management application built with Flutter and Supabase as the backend. The system empowers inspectors to efficiently manage vessel records, streamline the generation of detailed inspection reports, and view insightful analytics. Key features include secure authentication, robust offline/online synchronization, interactive data visualization, and automated PDF report generation and sharing, ensuring a seamless and reliable inspection workflow in the field.",
+      tags: ["Flutter", "Dart", "Supabase"],
+      video: "video6.mp4",
+      links: [
+        {
+          label: "GitHub",
+          url: "https://github.com/rohaizad85/inspectra_v2",
+          icon: "SiGithub",
+        },
+      ],
+    },
+    {
       id: "bus-ticket-management",
       title: "Bus Ticket Management System",
       description: "A GUI-based ticket booking system that allows users to search for available buses, book seats, process payments, and generate PDF tickets. Data is retrieved from a backend API.",
@@ -194,7 +208,7 @@ export const PORTFOLIO_INFO: Portfolio = {
       date: "Oct 2023 - Present",
       degree: "Bachelor of Computer Science (Software Development)",
       school: "Universiti Teknikal Malaysia Melaka (UTeM)",
-      score: "Current CGPA: 3.99",
+      score: "Current CGPA: 3.98",
     },
     {
       date: "2021 - 2023",
@@ -275,4 +289,5 @@ export const tagColors: TagColors = {
   "Dart": "bg-blue-100 text-blue-800",
   "C++": "bg-indigo-100 text-indigo-800",
   "CMake": "bg-gray-100 text-gray-800",
+  "Supabase": "bg-green-100 text-green-800",
 };
